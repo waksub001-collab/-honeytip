@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연암공과대학교 전기전자공학과 꿀팁 가이드</title>
+    <!-- Tailwind CSS (Standard CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Standard CSS Styles -->
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* 아코디언 콘텐츠 기본 숨김 */
+        .accordion-content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        /* 스크롤바 디자인 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #be185d; /* pink-700 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #fce7f3; /* pink-100 */
+        }
+        /* 모바일 메뉴 버튼용 */
+        .menu-icon {
+            cursor: pointer;
+        }
+        /* 사이드바 스크롤 (데스크탑) */
+        @media (min-width: 768px) {
+            .sidebar {
+                position: sticky;
+                top: 0;
+                align-self: flex-start; /* 중요: 상단 정렬 */
+                max-height: 100vh; /* 화면 높이만큼 최대 높이 */
+                overflow-y: auto; /* 내용 많아지면 스크롤 */
+            }
+        }
+        /* 모바일 메뉴 토글 */
+        @media (max-width: 767px) {
+            .sidebar-nav.hidden {
+                display: none;
+            }
+            .sidebar-nav {
+                max-height: 70vh; /* 모바일 메뉴 최대 높이 */
+                overflow-y: auto; /* 메뉴 길어지면 스크롤 */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="md:flex">
+        
+        <!-- === 왼쪽 사이드바 (카테고리) === -->
+        <aside class="md:w-64 bg-white p-6 sidebar">
+            <h1 class="text-xl font-bold text-pink-800 mb-1">연암공과대학교</h1>
+            <h1 class="text-2xl font-bold text-pink-700 mb-6">전기전자공학과 꿀팁 가이드</h1>
+            
+            <!-- 모바일 메뉴 버튼 -->
+            <div class="menu-icon md:hidden mb-4 p-2 bg-pink-600 text-white rounded-lg text-center" onclick="toggleMenu()">
+                메뉴 보기
+            </div>
+
+            <!-- 네비게이션 링크 -->
+            <nav class="sidebar-nav hidden md:block">
+                <ul class="space-y-2">
+                    <li><a href="#section-1" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">1. 진로 탐색</a></li>
+                    <li><a href="#section-2" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">2. 전기전자공학과 자격증</a></li>
+                    <li><a href="#section-3" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">3. 학과 교육과정 (트랙반)</a></li>
+                    <li><a href="#section-4" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">4. 교내 프로그램</a></li>
+                    <li><a href="#section-5" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">5. 장학금 제도</a></li>
+                    <li><a href="#section-6" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">6. 학교 홈페이지 200% 활용</a></li>
+                    <li><a href="#section-7" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">7. 도서관 프로그램</a></li>
+                    <li><a href="#section-8" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">8. 기숙사 꿀팁</a></li>
+                    <li><a href="#section-9" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">9. 찐 학교생활 꿀팁</a></li>
+                    <li><a href="#section-10" class="nav-link block px-4 py-2 rounded-md font-semibold text-gray-700 hover:bg-pink-100 hover:text-pink-700">10. 자취방 & 편의시설</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- === 메인 콘텐츠 === -->
+        <main class="flex-1 p-6 md:p-10">
+            
+            <header class="mb-10">
+                <p class="text-xl font-bold text-gray-800">연암공과대학교</p>
+                <h2 class="text-3xl font-bold text-gray-800">전기전자공학과 완벽 가이드</h2>
+                <p class="text-lg text-gray-600 mt-2">AI와 함께 준비하는 여러분의 빛나는 미래</p>
+            </header>
+
+            <div class="space-y-4">
+                
+                <!-- 1. 진로 탐색 -->
+                <section id="section-1" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">1. 진로 탐색</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <!-- (1) 직무 분류 -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">(1) 직무 분류</h4>
+                                <p class="mb-4 text-gray-700">전문대 전기전자공학과를 졸업하면 어떤 곳으로 가게 될지 궁금하시죠? 크게 '사기업'과 '공기업'으로 길이 나뉘고, 성별에 따라 선호되는 직무에도 약간의 차이가 있답니다.</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">A. 사기업</h5>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                                            <li>연암공대는 '트랙반' 제도가 매우 활성화되어 있어, LG 계열사(LG전자, LG디스플레이, LG에너지솔루션, 하이엠솔루텍 등)로 취업할 수 있는 기회가 많습니다.</li>
+                                            <li>트랙반이 아니더라도, 학교 추천서 등을 통해 LIG넥스원, 신성델타테크 등 중견/대기업으로의 지원도 활발합니다.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">B. 공기업</h5>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                                            <li>주로 한전KPS, 한국전력, 발전소(남동발전, 중부발전 등)의 전기직이나 기계정비직(기계과와 공통)으로 지원할 수 있습니다.</li>
+                                            <li>공기업은 높은 고용 안정성을 장점으로 하지만, NCS 준비와 치열한 경쟁을 이겨내야 한답니다.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">C. 성별에 따른 직무 분류 (경향성)</h5>
+                                        <p class="text-gray-700 mt-2"><strong class="font-semibold text-gray-800">A. 남학생 (주로 설비/엔지니어 직무)</strong></p>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1 ml-4">
+                                            <li><strong class="font-semibold text-gray-800">설비보전/유지보수:</strong> 공장의 설비를 정비(PM/BM)하고 PLC를 다루는 핵심 직무예요. 3조 3교대 또는 4조 3교대 근무가 많습니다.</li>
+                                            <li><strong class="font-semibold text-gray-800">생산 기술 (테크니션):</strong> 반도체/디스플레이 공정 장비를 유지보수하고 운영하는 역할입니다. (예: LG디스플레이 테크니션)</li>
+                                            <li><strong class="font-semibold text-gray-800">시설 관리:</strong> 건물이나 사업장의 전기 장치, 환경 시설 등을 관리하고 보수하는 직무랍니다.</li>
+                                        </ul>
+                                        <p class="text-gray-700 mt-3"><strong class="font-semibold text-gray-800">B. 여학생 (주로 품질/사무/오퍼레이터 직무)</strong></p>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1 ml-4">
+                                            <li><strong class="font-semibold text-gray-800">품질 관리 (QC/QA):</strong> 꼼꼼함이 요구되어 여학생들을 품질 관리 직무로 선호하는 경향이 있습니다. 사무실 근무 비중이 높습니다.</li>
+                                            <li><strong class="font-semibold text-gray-800">오퍼레이터 (Operator):</strong> 설비를 직접 정비하기보다, 설비를 조작하고 생산을 관리하는 역할이에요. (예: LG디스플레이 오퍼레이터)</li>
+                                            <li><strong class="font-semibold text-gray-800">사무보조/행정:</strong> 전공 지식을 바탕으로 자재 관리, 데이터 관리 등 사무 행정 업무를 지원하게 됩니다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- (2) 직무 정의 및 현장 업무 -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">(2) 직무 사전적 정의 및 현장 업무</h4>
+                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-3">
+                                    <li>
+                                        <strong class="font-semibold text-gray-800">설비보전:</strong> 공장형 회사의 핵심 직무입니다. 주로 설비가 고장 나지 않게 예방 정비(PM)를 하거나, 고장 났을 때 수리(BM)하는 역할을 합니다. PLC 로직을 보거나 수정하는 일이 잦고, 교대근무가 일반적입니다.
+                                    </li>
+                                    <li>
+                                        <strong class="font-semibold text-gray-800">시설직:</strong> 회사 내의 모든 전기 시설(조명, 전력, 소방, 공조)이나 편의장소의 시설물(예: 엘리베이터)을 관리하고 보수하는 직무랍니다. 사내 환경을 쾌적하게 유지하는 중요한 역할이에요.
+                                    </li>
+                                    <li>
+                                        <strong class="font-semibold text-gray-800">단순 제조직:</strong> 조립 라인에서 특정 부품을 반복적으로 조립하는 업무입니다. 예를 들어, 하루 종일 전동 드라이버로 피스를 박거나 동일한 부품을 끼우는 등의 단순 반복 노동이 주가 될 수 있습니다.
+                                    </li>
+                                    <li>
+                                        <strong class="font-semibold text-gray-800">LG디스플레이 (예시):</strong> 오퍼레이션(Operation)과 테크니션(Technician)으로 나뉩니다.
+                                        <ul class="list-decimal list-inside text-gray-700 mt-2 space-y-1 ml-6">
+                                            <li><strong class="font-semibold text-gray-800">오퍼레이션:</strong> 설비를 조작하여 실제 생산이 이루어지도록 운영하는 역할이에요. 주로 여학생들도 많이 뽑힌답니다.</li>
+                                            <li><strong class="font-semibold text-gray-800">테크니션:</strong> 주로 남학생을 뽑으며, 반도체 공정과 유사한 디스플레이 설비 장비를 유지보수(정비)하는 역할입니다. '장비반'이라고도 불리며, 3조 3교대 또는 4조 3교대로 구미나 평택에서 근무하게 됩니다.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. 전기전자공학과 자격증 -->
+                <section id="section-2" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">2. 전기전자공학과 자격증</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 어떤 자격증을 따야 취업에 유리한가요?</h4>
+                                <p class="text-gray-700 mb-4">어떤 직무를 희망하느냐에 따라 조금씩 다르지만, 전기과 학생이라면 기본적으로 갖추면 좋을 자격증들을 정리해봤어요.</p>
+                                
+                                <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-md mb-4">
+                                    <p class="font-semibold text-pink-800">⭐ 핵심 자격증 (필수 추천)</p>
+                                    <p class="text-pink-700">좋은 기업(대기업, 공기업, 중견기업)의 전기 직무를 노린다면 <strong class="font-bold">전기산업기사</strong> (또는 전기기사)는 사실상 필수랍니다. 이 자격증이 있으면 취업의 폭이 정말 넓어질 거예요.</p>
+                                </div>
+
+                                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">부수 자격증 (있으면 +@)</h5>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong class="font-semibold text-gray-800">산업안전산업기사 (산안산기):</strong> 안전 관리자의 수요가 높아 매우 유용해요.</li>
+                                    <li><strong class="font-semibold text-gray-800">위험물산업기사 (위산기):</strong> 석유화학이나 플랜트 쪽을 생각한다면 도움이 된답니다.</li>
+                                    <li><strong class="font-semibold text-gray-800">소방설비(전기분야)산업기사:</strong> 건물 관리나 시설직, 소방 관련 업체에 유용해요.</li>
+                                    <li><strong class="font-semibold text-gray-800">전기공사산업기사:</strong> 전기산업기사를 취득하면 필기 과목 대부분을 면제받을 수 있습니다. 시간이 남는다면 함께 취득하는 것도 좋은 생각이에요!</li>
+                                </ul>
+
+                                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">특정 직무 희망 시 추천</h5>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong class="font-semibold text-gray-800">공조냉동산업기사:</strong> 'LG서비스 트랙반'이나 'LG 하이엠솔루텍' (시스템 에어컨)을 희망한다면 강력히 추천합니다.
+                                        <div class="text-sm text-yellow-700 bg-yellow-50 p-3 mt-2 rounded-md">
+                                            <strong class="font-bold">주의:</strong> 필기는 쉽지만, 실기(용접 등) 준비가 매우 힘들어요. 학교에 용접 시설이 없어 외부 학원을 이용해야 하니 이 점을 꼭 유의해야 한답니다.
+                                        </div>
+                                    </li>
+                                </ul>
+                                
+                                <h5 class="text-lg font-semibold text-gray-800 mt-4 mb-2">기능사 (기본)</h5>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li>산업기사 응시 자격이 안 될 때 <strong class="font-semibold text-gray-800">전기기능사</strong>라도 미리 취득해두는 것이 좋아요.</li>
+                                    <li>그 외 <strong class="font-semibold text-gray-800">승강기기능사</strong>, <strong class="font-semibold text-gray-800">지게차기능사</strong>가 있으면 현장에서 유용하게 쓰일 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. 학과 교육과정 (트랙반) -->
+                <section id="section-3" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">3. 학과 교육과정 (트랙반 소개)</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 연암공대 전기과는 트랙반이 유명하던데, 뭐가 있나요?</h4>
+                                <p class="text-gray-700 mb-4">연암공대 트랙반 제도가 취업에 큰 도움이 된다는 건 이미 다들 알고 계시죠? 전기전자공학과 학생이 지원할 수 있는 핫한 주요 트랙반들을 모아봤어요!</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <!-- LG전자 스마트파크 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">LG전자 스마트파크</h5>
+                                        <p class="text-sm text-gray-600">LG전자 H&A, H&E 사업본부 생산 현장 인재를 양성하는 채용 우대형 트랙이랍니다. (기계/IT반 각 20명 규모)</p>
+                                    </div>
+                                    <!-- LGES 배터리 (해외) -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">LGES 배터리 (해외)</h5>
+                                        <p class="text-sm text-gray-600">LG에너지솔루션의 2차 배터리 글로벌 생산기술 전문가를 양성하며, 폴란드/캐나다 해외 실습 및 취업 기회를 얻을 수 있어요!</p>
+                                    </div>
+                                    <!-- 하이엠솔루텍 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">하이엠솔루텍</h5>
+                                        <p class="text-sm text-gray-600">LG전자 시스템에어컨 서비스 엔지니어를 양성하는 트랙이에요. 현장실습(유급)이 포함되며, 공조냉동 자격증이 우대된답니다.</p>
+                                    </div>
+                                    <!-- LG전자 서비스 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">LG전자 서비스</h5>
+                                        <p class="text-sm text-gray-600">LG전자 한국서비스 엔지니어(명장)가 직접 강의하는 현장 밀착형 교육을 제공하고 있습니다.</p>
+                                    </div>
+                                    <!-- 반도체 트랙 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">반도체 트랙</h5>
+                                        <p class="text-sm text-gray-600">반도체 현장직 및 설비 기술직을 목표로 준비할 수 있어요. 전용 강의실과 최첨단 장비를 갖추고 있습니다. (전 학과 지원 가능)</p>
+                                    </div>
+                                    <!-- 화공 트랙 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">화공 트랙</h5>
+                                        <p class="text-sm text-gray-600">LG화학 등 정유/석유화학 분야 취업을 목표로 합니다. 화학 지식이 요구되는 생산 현장 공무/생산직군에 지원 가능해요.</p>
+                                    </div>
+                                    <!-- 첨단생산기술 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">첨단생산기술</h5>
+                                        <p class="text-sm text-gray-600">모든 제조업에 필요한 생산기술(품질, 생산능력 확보) 인재를 양성합니다. 신성델타, 이엠텍 등 7개 기업과 협약되어 있어요.</p>
+                                    </div>
+                                    <!-- 첨단항공 MRO -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">첨단항공 MRO</h5>
+                                        <p class="text-sm text-gray-600">KAI, KAEMS와 협력하여 항공 정비(MRO) 인력을 양성하고 있습니다. 항공 전기/전자 이론 및 실습을 배울 수 있어요.</p>
+                                    </div>
+                                    <!-- 첨단항공제조 -->
+                                    <div class="border border-gray-200 rounded-lg p-4">
+                                        <h5 class="font-bold text-pink-600">첨단항공제조</h5>
+                                        <p class="text-sm text-gray-600">항공우주 부품제조 기업의 설계, 생산기술, 품질 직군 인재를 양성합니다. CATIA, CAM 등을 배우며 역량을 배양할 수 있습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. 교내 프로그램 -->
+                <section id="section-4" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">4. 역량을 쌓을 수 있는 학교 프로그램</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 저는 현장 실무 경험이 없는데 학교에서 진행하는 실습이 있나요?</h4>
+                                <p class="text-gray-700">
+                                    네! 매년 학교에서 모집하는 현장실습을 통해 학생들의 실무 능력을 쌓는 기회를 가진답니다. 요즘 신입이어도 관련 실무 경험을 중요하게 보고 있다는 건 다들 알고 있을 겁니다. 연암공과대학교는 현장실습을 통해 학생들의 실무 능력을 향상시키고 있습니다.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 사회봉사 및 진로특강 특별학점이 뭔가요?</h4>
+                                <p class="text-gray-700">
+                                    사회봉사 24시간을 채우면 특별학점 1학점이 부여되어 전기전자공학과 2년제 졸업학점 기준 76학점 중 1학점을 채울 수 있어요. 또한 학교에서 진행하는 산업체 진로특강 7회 참여시 진로특강 특별학점 1학점이 부여됩니다.
+                                </p>
+                                <p class="text-gray-700 mt-2">
+                                    -> 정리하면! 사회봉사 24시간, 진로특강 7회 참여시 2학점을 수업듣지 않고도 대체할 수 있어서 74학점을 수업을 들어 채우면 돼요!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 저는 동아리에 들어가고 싶은데 어떤 동아리가 있나요?</h4>
+                                <p class="text-gray-700">
+                                    동아리는 크게 일반 동아리, 전공 동아리로 나뉘어요. 일반 동아리는 말 그대로 스포츠 관련 동아리, 식물 동아리 등의 분야로 자유롭게 학생들이 구성하는 동아리에요. 전공동아리는 각 동아리당 배정된 교수님들과 학생들이 함께 전공 관련 프로그램을 진행하는 동아리입니다. 동아리 참여는 의무는 아니고 원하는 동아리에 선택하여 들어갈 수 있답니다. 전공 동아리 같은 경우 면접을 통해 동아리 참여가 가능합니다!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. 장학금 제도 -->
+                <section id="section-5" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">5. 장학금 제도</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 장학금은 어떤 종류가 있나요?</h4>
+                                <p class="text-gray-700 mb-4">연암공대에는 정말 다양한 장학금들이 있지만, 학생들이 가장 많이 받고 또 궁금해하는 핵심 장학금 3가지를 정리해 봤어요.</p>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">1. 성적우수 장학금 (등록금 지원)</h5>
+                                        <p class="text-gray-700 mt-2">학과 및 학년별 성적 순위에 따라 '갑, 을, 병, 정'으로 등급이 나뉘며, 그에 따라 등록금 일부가 감면(선감면 또는 후지급)됩니다.</p>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                                            <li>갑: 수업료 100%</li>
+                                            <li>을: 수업료 70%</li>
+                                            <li>병: 수업료 50%</li>
+                                            <li>정: 수업료 30%</li>
+                                        </ul>
+                                        <div class="mt-3 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 rounded-md">
+                                            <p class="font-bold">⭐ 매우 중요한 주의사항 ⭐</p>
+                                            <p class="mt-1">성적우수 장학금은 '등록금 지원' 장학금입니다. 만약 <strong class="font-semibold">국가장학금이나 다른 장학금으로 이미 등록금 100%를 면제받았다면, 성적우수 '갑'에 해당되어도 등록금 감면 혜택은 중복으로 받을 수 없습니다.</strong> (즉, 등록금 범위를 초과하여 지급되지 않습니다.)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">2. 교내 봉사 장학금 (생활비 지원)</h5>
+                                        <p class="text-gray-700 mt-2">총학생회, 학과 학생회(학회장, 부학회장), 동아리연합회, 기숙사 사생장 등 학생 자치기구에서 봉사하는 학생들에게 지급됩니다. 이 장학금은 '생활비 지원' 목적이므로, 등록금을 모두 면제받았더라도 추가로 받을 수 있습니다.</p>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">3. 교외 장학금 (다양함)</h5>
+                                        <p class="text-gray-700 mt-2">학교 외부의 재단이나 기업에서 지원하는 장학금입니다. 학교 공지사항이나 학과 단톡방을 통해 신청 기간을 잘 확인해야 합니다. 종류가 매우 다양하고 조건도 다르므로, 공지가 올라올 때마다 본인에게 해당하는지 확인하는 습관이 중요해요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. 학교 홈페이지 200% 활용 -->
+                <section id="section-6" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">6. 학교 홈페이지 200% 활용 TIP</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <!-- MS Office 365 -->
+                            <div class="p-4 bg-pink-50 border border-pink-200 rounded-lg">
+                                <h4 class="text-xl font-semibold text-pink-700 mb-3">⭐ (놓치면 안 돼요!) MS Office 365 & Copilot 무료 이용</h4>
+                                <p class="text-gray-700 mb-2">연암공대 학생이라면 Microsoft Office 365 (PPT, 엑셀, 워드) 정품을 무료로 이용할 수 있어요. 1TB의 OneDrive 클라우드 저장소도 제공된답니다.</p>
+                                <p class="text-gray-700 mb-3">최근에는 GPT 기반 AI인 <strong class="font-semibold">Copilot (구 Bing Chat Enterprise)</strong>도 무료로 제공되니, 과제나 보고서 작성 시 꼭 활용해 보세요!</p>
+                                <p class="text-gray-700 font-semibold mb-1">활용 방법:</p>
+                                <ol class="list-decimal list-inside text-gray-700 space-y-1">
+                                    <li>연암공대 포털 (<a href="http://portal.yc.ac.kr/enview/user/login.face" target="_blank" class="text-pink-600 hover:underline">portal.yc.ac.kr</a>) 접속 및 로그인</li>
+                                    <li>메인 화면의 [Office 365] 버튼 클릭</li>
+                                    <li>[Microsoft 365 로그인하기] 클릭 후 학교 계정으로 로그인</li>
+                                    <li>모든 MS 365 앱과 Copilot을 무료로 사용!</li>
+                                </ol>
+                            </div>
+
+                            <!-- 학사행정시스템 -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">📚 학사행정시스템 (성적, 수강신청, 휴복학을 한방에!)</h4>
+                                <p class="text-gray-700 mb-2">학교 생활의 기본이죠. 주 사용 목적은 <strong class="font-semibold">성적 확인, 수강신청, 휴/복학 신청</strong> 그리고 <strong class="font-semibold">강의계획서 열람</strong>이랍니다.</p>
+                                <p class="text-gray-700"><strong class="font-semibold text-pink-600">Tip:</strong> '강의계획서'를 잘 보는 것이 매우 중요해요. 교수님들이 한 학기 동안의 중간/기말고사 일정, 진도, 평가 방식 등을 모두 작성해두시기 때문에, 이걸 보고 공부 방향을 잡는 데 큰 도움이 될 수 있어요.</p>
+                            </div>
+
+                            <!-- 뉴칼라인재양성시스템 -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">🚀 뉴칼라인재양성시스템 (스펙 마일리지 쌓기!)</h4>
+                                <p class="text-gray-700 mb-2">학생들이 주로 사용하는 목적은 <strong class="font-semibold">비교과 프로그램 신청</strong>이나 교내외 프로그램 신청입니다. 또한, 이곳에 <strong class="font-semibold">내가 취득한 자격증을 등록</strong>할 수도 있답니다. 활동을 많이 해서 마일리지를 차곡차곡 쌓아보세요!</p>
+                                <a href="https://ness.yc.ac.kr/Main/Default_SSO.aspx" target="_blank" class="inline-block px-4 py-2 bg-pink-100 text-pink-700 rounded-md hover:bg-pink-200 text-sm font-semibold">NESS 바로가기</a>
+                            </div>
+
+                            <!-- LMS/COSMOS -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">📱 LMS/COSMOS 앱으로 한방에 접속!</h4>
+                                <p class="text-gray-700 mb-3">학교 LMS(강의 시스템)를 스마트폰으로 볼 때, 매번 브라우저로 귀찮게 로그인할 필요 없어요. '코스모스(COSMOS)' 앱을 설치하면 알림도 받고 훨씬 편하게 접속할 수 있답니다.</p>
+                                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                                    <div class="text-center">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://apps.apple.com/kr/app/%EC%BD%94%EC%8A%A4%EB%AA%A8%EC%8A%A4/id1142523906" alt="App Store QR Code" class="w-32 h-32 border rounded-md">
+                                        <p class="mt-2 font-semibold text-gray-700">App Store</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://play.google.com/store/apps/details?id=kr.coursemos.android2&hl=ko&pli=1" alt="Google Play Store QR Code" class="w-32 h-32 border rounded-md">
+                                        <p class="mt-2 font-semibold text-gray-700">Google Play Store</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 증명서 출력 -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">📜 인터넷 증명서 출력 (유료)</h4>
+                                <p class="text-gray-700 mb-2">성적 증명서나 재학 증명서가 급하게 필요할 때 이용해요. 외주 업체를 통해 인쇄하는 방식이라 아쉽지만 돈이 듭니다. 그래도 교내에서 출력할 수 없는 상태이고 편리하게 이용하고 싶을 땐 유용하게 활용해 보세요.</p>
+                                <a href="https://yc.certpia.com/" target="_blank" class="inline-block px-4 py-2 bg-pink-100 text-pink-700 rounded-md hover:bg-pink-200 text-sm font-semibold">증명서 발급 (Certpia)</a>
+                            </div>
+
+                            <!-- Ebook -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Ebook (북큐브) 무료 이용</h4>
+                                <p class="text-gray-700">학교 도서관을 통해 '북큐브' 전자도서관을 무료로 이용할 수 있답니다. 밀리의 서재처럼 책이 무척 많은 건 아니지만, 어느 정도 볼 만한 전공 서적이나 교양 책들이 생각 이상으로 많으니 꼭 이용해 보세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. 도서관 프로그램 -->
+                <section id="section-7" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">7. 도서관 프로그램</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 저는 책 읽는걸 좋아해요. 도서관에서 진행하는 프로그램 없을까요?</h4>
+                                <p class="text-gray-700">
+                                    - 도서관에서도 다양한 프로그램을 매학기 진행하고 있어요. 요즘에는 AI가 대세이지요?
+                                    AI 프로그램을 활용하여 독후감 작성, 다독상, 전자도서관 이용 후 독후감 작성 등 어렵지 않은 프로그램들로 구성되어 있어서 부담없이 진행할 수 있어요.
+                                    또한 시험기간에 도서관 이벤트로 간식을 증정해준답니다!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 대출하고 싶은데 어떻게 해야하나요?</h4>
+                                <p class="text-gray-700">
+                                    - 도서관 무인 대출기 또는 데스크를 통해서 대출 가능합니다!
+                                    도서관은 9:00 – 18:00까지 운영되니 이용시 참고해 주세요!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 조용히 공부하고 싶은 장소가 필요해요.</h4>
+                                <p class="text-gray-700">
+                                    - 도서관 옆에 열람실이 총 2개가 있어요. 열람실1은 독서실 책상으로 되어있어서 집중하기에 좋은 장소에요. 다만, 노트북 사용은 금지된 공간이에요! 노트북을 사용하고 싶다면 열람실 2에서 이용해주시면 됩니다.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 저는 노트북이 없는데 과제를 해야해요.</h4>
+                                <p class="text-gray-700">
+                                    - 도서관 내에 멀티미디어실이 있어요. 멀티미디어실에는 복사도 가능하며 컴퓨터를 사용하여 과제도 할 수 있습니다. 당연히! 게임은 하면 안되겠죠?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. 기숙사 꿀팁 -->
+                <section id="section-8" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">8. 기숙사 꿀팁</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q. 기숙사 관별 특징이 궁금해요.</h4>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong class="font-semibold text-gray-800">1관:</strong> 여자기숙사 (남자 못 들어옴, 정보 없음)</li>
+                                    <li><strong class="font-semibold text-gray-800">2관:</strong>
+                                        <ul class="list-circle list-inside ml-4">
+                                            <li>2~3인실</li>
+                                            <li>입관시 학점 컷 가장 낮음</li>
+                                            <li>공용화장실 + 샤워실</li>
+                                            <li>방이 제일 좁음 (2층 침대)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong class="font-semibold text-gray-800">3관:</strong>
+                                        <ul class="list-circle list-inside ml-4">
+                                            <li>2~3인실</li>
+                                            <li>식당 가까움</li>
+                                            <li>학점 컷 중간</li>
+                                            <li>2관보다 넓으나 방 좁은편</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong class="font-semibold text-gray-800">4관:</strong>
+                                        <ul class="list-circle list-inside ml-4">
+                                            <li>2인실만 있음</li>
+                                            <li>가장 시설이 깨끗하고 비흡연자들로 구성</li>
+                                            <li>방이 가장 넓음</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. 찐 학교생활 꿀팁 -->
+                <section id="section-9" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">9. 찐 학교생활 꿀팁</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q1. 등록금 고지서에 있는 학생회비 안내면 불이익 있나요?</h4>
+                                <p class="text-gray-700">
+                                    -> 불이익은 없습니다! 왜 안냈냐며 혼내거나 하는 사람은 아무도 없어요.
+                                    다만, 연암공과대학교와 제휴하는 업체 이용시에 제한은 있습니다.
+                                    예를들어 제휴 주점이나 제휴 식당 이용시 학생회비 납부자에 한해서 혜택 받을 수 있는 경우들이 있어요.
+                                    이러한 부분 이외에는 불이익을 받는다거나 차별한다거나 부조리는 없기에 학생회비 납부는 선택입니다!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q2. 책 값이 너무 비싸요ㅠㅠ</h4>
+                                <p class="text-gray-700">
+                                    -> 전공 책 구매하려면 정말 비싸죠! 그렇지만 연암공과대학교는 학생들의 부담을 덜어주기 위해 신입생들 한정 ‘연암인 장학금 20만원’을 지원해준답니다! 생활비 지원식으로 자유롭게 현금으로 사용가능해요.
+                                </p>
+                                <p class="text-gray-700 mt-2">
+                                    -> 그럼에도 비싸다면! ‘에브리타임’어플 책방 또는 게시글로 선배들에게 구매할 수 있어요.
+                                    대부분 저렴하게 판매하시고 책 상태도 깨끗하니 좋아서 강력 추천합니다!
+                                </p>
+                                <p class="text-gray-700 mt-2">
+                                    -> 학교 앞 복사집에서 제본할 수도 있어요. 가장 가까운 경상대 근처 대도복사 집에 가면 제본 가능한 책들이 있어서 찾아보는 것도 추천!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q3. 진로 선택에 있어서 막막해요. 누구한테 털어놓고 싶어요!</h4>
+                                <p class="text-gray-700">
+                                    -> 진로 선택에 어려움을 겪고 있는 학생들은 특별 강의동에 위치한 ‘학교 잡카페’가 있어요!
+                                    학교 잡카페 진로 전문 상담가를 통해서 진로 길잡이에 도움이 많이 되니 유용하게 이용해보세요!
+                                    이용시 뉴칼라 인재양성시스템을 통해서 필수적으로 예약 후 이용해야 합니다.
+                                </p>
+                                <p class="text-gray-700 mt-2">
+                                    [예약 방법] 연암공과대학교 포털 -> 뉴칼라 인재양성시스템 -> 진로,심리상담 -> 전문가 상담
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q4. 대학생이라 용돈이 부족한데.. 배는 고프고 어떡하지?</h4>
+                                <p class="text-gray-700">
+                                    - 연암공과대학교는 ‘천원의 아침밥상’을 운영중이이에요. 말 그대로 천원에 아침식사를 할 수 있어요.
+                                    간편식과 급식 형태인 정식 둘 중 하나를 선택해서 먹을 수 있는데 간편식은 흔히 우리가 편의점에서 먹을 수 있는 샌드위치나 김밥 등이 나와서 인기가 많은편이에요!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q5. 학교 안에 편의점이 있다고?</h4>
+                                <p class="text-gray-700">
+                                    - 연암공과대학교는 교내에 ‘GS25’편의점이 있어요. 사장님이 계실때도 있고 늦은 저녁이나 새벽에는 무인으로 운영되어 문이 잠겨 있어요. 출입하려면 본인 체크카드를 삽입 후 인증 되면 출입할 수 있으니 카드 잘 챙겨다니기~!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q6. 연암공과대학교에 진짜 여학우들이 많이 없나요?</h4>
+                                <p class="text-gray-700">
+                                    - 네! 한 학년당 전기전자공학과 기준 약 10명정도 있어요. 대신 귀여운 고먐미가 있답니다. 야옹
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q7. 경사가 많아서 힘들어요. 미래관에서 본관까지 올라가는데 오래걸려요!</h4>
+                                <p class="text-gray-700">
+                                    - 미래관에서 본관으로 올라갈 때 비밀 돌 계단이 있답니다. 한번 찾아보세요 후후
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q8. 친구들과 함께 알려주면서 공부하고 싶어요.</h4>
+                                <p class="text-gray-700">
+                                    - ‘연암공과대학교 모바일 열람식 예약’어플 설치 후 스터디룸 예약후 열람실 옆에 있는 스터디룸을 사용할 수 있어요! 도서관 데스크에 신분증을 맡겨 놓은 후 열쇠를 받아서 가면 된답니다.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q9. 오늘 학식 뭐임?</h4>
+                                <p class="text-gray-700">
+                                    - 학식 메뉴는 ‘meal care’어플 설치 후 진주연암점 클릭하면 이번주 학식을 모두 볼 수 있어요!
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q10. 프린트하려는데 프린터기는 어디에 있지?</h4>
+                                <p class="text-gray-700">
+                                    - 미래관 내 도서관 및 학생회관 프린트를 사용하면 무료로 사용할 수 있어요.
+                                    다만!! 무분별한 종이사용을 방지하기 위해서 본인이 용지를 들고 가야지만 복사 가능합니다!!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. 자취방 & 편의시설 -->
+                <section id="section-10" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="accordion-header cursor-pointer p-6 sm:p-8 flex justify-between items-center">
+                        <h3 class="text-2xl font-bold text-pink-700">10. 자취방 & 편의시설</h3>
+                        <span class="text-2xl text-pink-700 transform transition-transform duration-300">+</span>
+                    </div>
+                    <div class="accordion-content px-6 sm:p-8 pt-0 pb-8">
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q1. 학교 근처에서 자취하고 싶어요. 어디가 좋나요?</h4>
+                                <p class="text-gray-700 mb-2">
+                                    - 학교 근처는 크게 1) 호탄동 2) 가좌동 3) 연암공대 정문 바로 앞 자취방 으로 나뉘어요.
+                                    각각의 장, 단점 및 월세 시세를 정리해서 말씀 드릴게요~!
+                                </p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">1) 호탄동 (진주 mbc 근처 위치)</h5>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                                            <li>학교랑 약간 거리가 있지만 도보로 이동 가능한 거리</li>
+                                            <li>시세: 관리비 포함 35-45만원 정도 (방에 따라 차이 있음)</li>
+                                            <li>장점: 근처에 하나로마트, mbc 지하에 노브랜드 있어서 장보기 수월함</li>
+                                            <li>단점: 학교랑 엄청 가깝진 않음</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">2) 가좌동 (경상대 후문 근처 위치)</h5>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                                            <li>학교랑 약간 거리 있지만 도보로 이동 가능한 거리</li>
+                                            <li>시세: 관리비 포함 40~50만원 정도 (방에 따라 차이 있음)</li>
+                                            <li>장점: 경상대 후문 근처라서 식당 및 카페, 편의점 등 인프라가 잘 되어 있음</li>
+                                            <li>단점: 가격대가 제일 높은 편</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-lg font-semibold text-pink-600">3) 연암공대 정문 바로 앞</h5>
+                                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                                            <li>시세: 관리비 포함 35~40만원 정도 (방에 따라 차이 있음)</li>
+                                            <li>장점: 학교랑 가장 거리가 가까움</li>
+                                            <li>단점: 가스 보일러가 아니라서 겨울철에 추움, 주변에 편의점, 식당, 카페 인프라 없음</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-3">Q2. 마트 및 편의시설 위치</h4>
+                                <p class="text-gray-700 mb-2">학교 정문 기준 도보 이동 시간입니다.</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong class="font-semibold text-gray-800">마트 (MBC 노브랜드):</strong> 약 10분</li>
+                                    <li><strong class="font-semibold text-gray-800">마트 (하나로마트 진주남부농협):</strong> 약 10분</li>
+                                    <li><strong class="font-semibold text-gray-800">다이소:</strong> 약 20분</li>
+                                    <li><strong class="font-semibold text-gray-800">24시 프린트카페:</strong> 약 10분</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // 아코디언 스크립트
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('span');
+
+                // 현재 클릭된 섹션이 이미 열려있는지 확인
+                const isOpen = content.style.display === 'block';
+
+                // 모든 콘텐츠 섹션을 닫음
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    c.style.display = 'none';
+                    c.previousElementSibling.querySelector('span').textContent = '+';
+                });
+
+                // 현재 클릭된 섹션이 닫혀있었다면, 열어줌
+                if (!isOpen) {
+                    content.style.display = 'block';
+                    icon.textContent = '-';
+                }
+            });
+        });
+
+        // 모바일 메뉴 토글 스크립트
+        function toggleMenu() {
+            const nav = document.querySelector('.sidebar-nav');
+            nav.classList.toggle('hidden');
+        }
+
+        // 네비게이션 링크 클릭 시 부드럽게 스크롤 및 아코디언 열기
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // 1. 해당 섹션의 아코디언 헤더를 찾아 클릭 이벤트를 강제로 발생시킴
+                    const targetHeader = targetElement.querySelector('.accordion-header');
+                    if (targetHeader) {
+                        // 이미 열려있지 않은 경우에만 클릭 이벤트 발생 (토글 방지)
+                        if (targetHeader.nextElementSibling.style.display !== 'block') {
+                            targetHeader.click();
+                        }
+                    }
+
+                    // 2. 부드럽게 스크롤
+                    // 스크롤이 끝난 후 위치를 정확히 맞추기 위해 약간의 지연을 줌
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20, // 상단 여백 20px
+                            behavior: 'smooth'
+                        });
+                    }, 100); // 아코디언이 열리는 시간을 약간 기다림
+
+                    // 3. 모바일에서 링크 클릭 시 메뉴 닫기
+                    const nav = document.querySelector('.sidebar-nav');
+                    if (window.innerWidth <= 767 && !nav.classList.contains('hidden')) {
+                        nav.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
